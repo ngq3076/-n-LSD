@@ -69,6 +69,20 @@ input[type=range]{width:100%;accent-color:var(--pink);height:28px}
     <label><input type="checkbox" id="sho" checked> Trộn đáp án 🍬</label>
   </div>
   <button class="btn" id="go">Bắt đầu thôi! 🌸</button>
+  <div class="tog">
+    <label><input type="checkbox" id="shq" checked> Trộn câu hỏi 🔀</label>
+    <label><input type="checkbox" id="sho" checked> Trộn đáp án 🍬</label>
+  </div>
+  <button class="btn" id="go">Bắt đầu thôi! 🌸</button>
+
+  <!-- BẮT ĐẦU PHẦN CODE MỚI THÊM -->
+  <div class="lbl" style="margin-top:24px; font-size:16px;">🎯 Hoặc gõ số thứ tự để làm 1 câu cụ thể:</div>
+  <div class="cnt" style="margin-top:10px">
+    <input type="number" id="jumpQ" min="1" placeholder="VD: 56" style="width:120px">
+    <button class="btn sm alt" id="jumpBtn" style="margin:0; padding:10px 20px;">Tới luôn 🚀</button>
+  </div>
+  <!-- KẾT THÚC PHẦN MỚI -->
+</section>
 </section>
 
 <section id="play" class="hid">
@@ -280,4 +294,12 @@ $('again').onclick=()=>start(lastSet);
 $('wrongOnly').onclick=()=>start(wrong.map(w=>w.id-1));
 $('home2').onclick=()=>{show('home');window.scrollTo(0,0)};
 $('quit').onclick=()=>{if(confirm('Thoát bài làm hiện tại nha? 🥺'))show('home')};
+  $('jumpBtn').onclick = () => {
+  const v = parseInt($('jumpQ').value);
+  if (v >= 1 && v <= N) {
+    start([v - 1]);
+  } else {
+    alert('Câu này chưa có trong ngân hàng! Vui lòng nhập từ 1 đến ' + N + ' nhé 🥺');
+  }
+};
 </script></body></html>
